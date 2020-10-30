@@ -1,14 +1,11 @@
 // app.js
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const cookiepricer = require('./cookiepricer.js');
 
-app.use(cors());
-
-io.origins(['http://jsramverkproject.jsramverk.me']);
+io.origins(['http://jsramverkproject.jsramverk.me:443']);
 
 
 var cookie1 = {
@@ -53,7 +50,4 @@ setInterval(function() {
     io.emit("stocks", cookies)
 }, 5000)
 
-server.listen(3004, () => console.log(`SERVER IS UP , 3004 PORT`));
-
-
-// const cors = require('cors');
+server.listen(3014, () => console.log(`SERVER IS UP , 3014 PORT`));
